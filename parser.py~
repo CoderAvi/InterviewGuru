@@ -1,0 +1,14 @@
+#!/usr/bin/python -tt
+import bs4
+
+
+def main():
+s2f=open("/Users/Macho/Developer/IR/sample2.html")
+s2s=s2f.read()
+sp=bs4.BeautifulSoup(s2s)
+sp.body.find('span',attrs={'class':'entry'}).text
+
+	sys.exit(0)
+				
+if __name__ == '__main__':
+  main()
