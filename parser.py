@@ -4,15 +4,14 @@ import sys
 import os
 import json
 
+#this file 
 #this file contains the code snippet to parse HTML
 def main():
-	
 	dict1 = {}
 	filelist = os.listdir("C:\Users\sindhu\Desktop\ir\project\careercup")
 	print len(filelist)
-    i = 1
-    """   
-   	for file in filelist:  
+	i = 0
+    for file in filelist:  
    	    dict2 = {}
 		f=open(file)
 		html=f.read()
@@ -30,7 +29,6 @@ def main():
 		print company , position , type
 		dict1[i] = dict2
 		i += 1
-	"""
 	with open('data.txt', 'w') as outfile:
     json.dump(dict1, outfile)
 	sys.exit(0)
