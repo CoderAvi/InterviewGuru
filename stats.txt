@@ -1,0 +1,302 @@
+**************Amazon**************
+General Questions and Comments: 4
+Java: 32
+Matrix: 4
+Software Engineer / Developer: 1
+Object Oriented Design: 21
+Data Mining: 1
+Ideas: 2
+Data Structures: 75
+Problem Solving: 1
+Distributed Computing: 3
+Operating System: 2
+String Manipulation: 12
+Operators: 1
+Stacks: 1
+Amazon: 1
+Hash Table: 1
+Threads: 4
+Application / UI Design: 22
+Linked Lists: 13
+Networking / Web / Internet: 1
+C: 9
+Sorting: 7
+Brain Teasers: 7
+Algorithm: 396
+Database: 4
+Arrays: 30
+C++: 6
+Large Scale Computing: 5
+Knowledge Based: 2
+Trees and Graphs: 38
+Experience: 4
+System Design: 4
+Behavioral: 1
+Debugging: 4
+Testing: 14
+Coding: 43
+Math & Computation: 2
+JavaScript: 2
+Bit Manipulation: 3
+untagged: 381
+PHP: 1
+Unix: 3
+TOTAL: 1168
+**************Bloomberg LP**************
+General Questions and Comments: 9
+Java: 5
+Object Oriented Design: 7
+Data Structures: 14
+Linux Kernel: 5
+Problem Solving: 1
+Operating System: 13
+String Manipulation: 5
+Stacks: 2
+Hash Table: 3
+Threads: 9
+Application / UI Design: 2
+Terminology & Trivia: 58
+Linked Lists: 2
+Networking / Web / Internet: 4
+XML: 1
+C: 29
+Sorting: 1
+Brain Teasers: 32
+Algorithm: 63
+Database: 4
+Arrays: 4
+C++: 125
+Knowledge Based: 1
+Trees and Graphs: 3
+Experience: 3
+System Design: 1
+Behavioral: 22
+Security: 1
+Debugging: 1
+Probability: 3
+Coding: 20
+Math & Computation: 3
+Bit Manipulation: 3
+untagged: 113
+Computer Architecture & Low Level: 11
+TOTAL: 583
+**************Microsoft**************
+General Questions and Comments: 14
+Java: 2
+Matrix: 2
+Object Oriented Design: 12
+Data Mining: 1
+Ideas: 3
+Perl: 1
+Data Structures: 36
+Operating System: 8
+String Manipulation: 23
+Front End Web Development: 3
+Stacks: 3
+Threads: 1
+Application / UI Design: 15
+Terminology & Trivia: 1
+Linked Lists: 26
+Networking / Web / Internet: 1
+Compiler: 1
+C: 40
+Sorting: 1
+Brain Teasers: 22
+Algorithm: 384
+Database: 2
+Arrays: 36
+C++: 15
+Trees and Graphs: 29
+Experience: 11
+System Design: 4
+Behavioral: 20
+Microsoft: 2
+Debugging: 1
+Dynamic Programming: 1
+Testing: 42
+Coding: 49
+OODesign: 2
+Math & Computation: 8
+Bit Manipulation: 6
+untagged: 359
+Computer Architecture & Low Level: 2
+TOTAL: 1189
+**************Apple**************
+String Manipulation: 1
+TOTAL: 1
+**************Facebook**************
+Matrix: 1
+Object Oriented Design: 1
+Ideas: 2
+Data Structures: 8
+Distributed Computing: 1
+Android: 1
+Python: 3
+String Manipulation: 1
+Threads: 1
+Application / UI Design: 20
+Graphics: 1
+Terminology & Trivia: 1
+Linked Lists: 2
+C: 2
+Algorithm: 68
+Database: 1
+Trees and Graphs: 2
+Experience: 1
+System Design: 4
+Dynamic Programming: 2
+Probability: 1
+Coding: 20
+Math & Computation: 1
+untagged: 39
+PHP: 1
+TOTAL: 185
+**************Adobe**************
+General Questions and Comments: 4
+Java: 13
+Data Structures: 17
+Operating System: 5
+String Manipulation: 1
+Stacks: 1
+Threads: 1
+Application / UI Design: 3
+Linked Lists: 4
+C: 29
+Brain Teasers: 8
+Algorithm: 96
+Database: 1
+Arrays: 8
+C++: 6
+Knowledge Based: 2
+Trees and Graphs: 6
+Dynamic Programming: 1
+Coding: 12
+Math & Computation: 2
+Bit Manipulation: 1
+untagged: 100
+TOTAL: 321
+**************Qualcomm**************
+General Questions and Comments: 4
+Java: 3
+Perl: 6
+Data Structures: 2
+Linux Kernel: 10
+Operating System: 10
+String Manipulation: 3
+Threads: 3
+Terminology & Trivia: 8
+Linked Lists: 2
+Networking / Web / Internet: 8
+C: 17
+Brain Teasers: 2
+Algorithm: 25
+Database: 1
+Arrays: 1
+C++: 5
+Experience: 3
+System Design: 1
+Behavioral: 1
+Security: 2
+Debugging: 4
+Cache: 1
+Testing: 7
+Coding: 12
+Math & Computation: 1
+Bit Manipulation: 10
+untagged: 37
+Unix: 2
+Computer Architecture & Low Level: 6
+TOTAL: 197
+**************Yahoo**************
+Java: 9
+Matrix: 1
+Object Oriented Design: 2
+Ideas: 2
+Perl: 1
+Data Structures: 4
+Front End Web Development: 1
+Hash Table: 2
+Threads: 2
+Application / UI Design: 2
+Terminology & Trivia: 8
+Networking / Web / Internet: 1
+C: 10
+Brain Teasers: 11
+Algorithm: 110
+Database: 2
+Arrays: 1
+C++: 6
+Trees and Graphs: 1
+Experience: 1
+Coding: 8
+Math & Computation: 3
+untagged: 25
+TOTAL: 213
+**************Google**************
+General Questions and Comments: 3
+Java: 3
+Matrix: 1
+Object Oriented Design: 1
+Ideas: 2
+Data Structures: 14
+Linux Kernel: 1
+String Manipulation: 1
+Hash Table: 3
+Application / UI Design: 2
+Terminology & Trivia: 2
+Linked Lists: 2
+Networking / Web / Internet: 2
+XML: 1
+C: 5
+Brain Teasers: 11
+Algorithm: 144
+Database: 1
+Arrays: 13
+C++: 8
+Large Scale Computing: 2
+Trees and Graphs: 2
+System Design: 4
+Behavioral: 1
+Testing: 3
+Coding: 18
+Math & Computation: 1
+Bit Manipulation: 4
+untagged: 57
+Computer Architecture & Low Level: 1
+TOTAL: 313
+**************NVIDIA**************
+General Questions and Comments: 2
+Data Structures: 1
+Linux Kernel: 14
+Operating System: 22
+String Manipulation: 1
+Hash Table: 1
+Graphics: 2
+Terminology & Trivia: 4
+Linked Lists: 3
+Networking / Web / Internet: 2
+C: 24
+Brain Teasers: 2
+Algorithm: 12
+Arrays: 2
+C++: 1
+Coding: 10
+Math & Computation: 2
+Bit Manipulation: 10
+untagged: 50
+Computer Architecture & Low Level: 15
+TOTAL: 180
+**************Synopsys R&D**************
+C++: 1
+TOTAL: 1
+**************Expedia**************
+Linked Lists: 2
+TOTAL: 2
+**************IBM**************
+Software Engineer / Developer: 1
+TOTAL: 1
+**************NetApp**************
+Java: 1
+Linked Lists: 1
+TOTAL: 2
+TOTAL UNTAGGED SIZE: 1161

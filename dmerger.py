@@ -4,6 +4,7 @@ import sys
 import os
 import json
 import copy
+import shutil
 
 def merge(directory,mfile_name):
 	dict1={}
@@ -23,8 +24,10 @@ def merge(directory,mfile_name):
 	final=open(mfile_name,'w')
 	json.dump(dict1,final)
 	final.close()
-	for file1 in filelist:
-		os.remove(directory+'/'+file1)
+	#for file1 in filelist:
+	#	os.remove(directory+'/'+file1)
+	#os.rmdir(directory)
+	shutil.rmtree(directory)
 
 
 def main():

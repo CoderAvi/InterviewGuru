@@ -4,6 +4,7 @@ import sys
 import os
 import json
 import copy
+import shutil
 
 def merge(directory,mfile_name):
 	dict1={}
@@ -23,8 +24,10 @@ def merge(directory,mfile_name):
 	final=open(mfile_name,'w')
 	json.dump(dict1,final)
 	final.close()
-	for file1 in filelist:
-		os.remove(directory+'/'+file1)
+	#for file1 in filelist:
+	#	os.remove(directory+'/'+file1)
+	#os.rmdir(directory)
+	shutil.rmtree(directory)
 
 def main():
 	dict1={}
@@ -39,6 +42,9 @@ def main():
 		os.makedirs('./temp2')
 	if not os.path.exists('./temp3'):
 		os.makedirs('./temp3')
+	#e1=open('error_file1.txt','w')
+	#e2=open('error_file2.txt','w')
+	#e3=open('error_file3.txt','w')
 	for file1 in filelist:
 		print file1
 		filename="../data/careercup/database/"+file1
@@ -56,11 +62,17 @@ def main():
 		#dict1[file1]=tmp.text
 		tags=[]
 		dict1[file1]=tags	
-		if len(tmp)<=2:
-			print 'c...'
+		if len(tmp)==0:
+			#e1.write('warning: company tag not found\n')
 			continue
 		dict2[file1]=tmp[0].text
+		if len(tmp)==1:
+			#e2.write('warning: position tag not found\n')
+			continue
 		dict3[file1]=tmp[1].text
+		if len(tmp)<=2:
+			#e3.write('warning: no tags found\n')
+			continue
 		tmp=tmp[2:]
 		for x in tmp:
 			l=x.contents[0]
