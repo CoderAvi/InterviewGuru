@@ -5,14 +5,14 @@ import os
 import json
 import copy
 
-
-def main():
+def merge(directory,mfile_name):
 	dict1={}
-	filelist = os.listdir("/Users/Macho/Developer/IR/indices/")
+	filelist = os.listdir(directory)
 	for file1 in filelist:
-		f=open("/Users/Macho/Developer/IR/indices/"+file1,'r')
+		f=open(directory+'/'+file1,'r')
 		s=f.read()
 		t=json.loads(s)
+		f.close()
 		for k in sorted(t.keys()):
 			dict1[k]=t[k]
 		dict2={}
@@ -20,8 +20,17 @@ def main():
 			dict2[k]=dict1[k]
 		dict1=dict2
 		dict2={}
-	final=open('dataf.txt','w')
+	final=open(mfile_name,'w')
 	json.dump(dict1,final)
+	final.close()
+	for file1 in filelist:
+		os.remove(directory+'/'+file1)
+
+
+def main():
+	merge('./temp1','tag_data.txt')
+	merge('./temp2','company_data.txt')
+	merge('./temp3','position_data.txt')
 	sys.exit(0)
 
 if __name__ == '__main__':
