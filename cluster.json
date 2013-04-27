@@ -1,11 +1,11 @@
 {
- "name": "careercup",
+ "name": "company stats",
  "children": [
   {
    "name": "microsoft",
    "children": [
     {
-     "name": "cluster",
+     "name": "distribution",
      "children": [
       {"name": "algorithms", "size": 3938},
       {"name": "datastructures", "size": 3812},
@@ -14,6 +14,21 @@
      ]
     }
     ]
+  },
+  {
+   "name": "amazon",
+   "children": [
+    {
+     "name": "distribution",
+     "children": [
+      {"name": "algorithms", "size": 7000},
+      {"name": "datastructures", "size": 3400},
+      {"name": "systems", "size": 100},
+      {"name": "java", "size": 500}
+     ]
+    }
+    ]
   }
+
 ]
 }
