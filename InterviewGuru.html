@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+
+<style>
+
+circle {
+  fill: rgb(31, 119, 180);
+  fill-opacity: .25;
+  stroke: rgb(31, 119, 180);
+  stroke-width: 1px;
+}
+
+.leaf circle {
+  fill: #ff7f0e;
+  fill-opacity: 1;
+}
+
+text {
+  font: 10px sans-serif;
+}
+
+input[name="inputbox"] {
+  width: 425px;
+}
+
+input[name="button"] {
+  width: 100px;
+}
+
+
+</style>
+
+
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+function showDistribution() {
+
+d3.select("svg")
+       .remove();
+
+var diameter = 960,
+    format = d3.format(",d");
+
+var pack = d3.layout.pack()
+    .size([diameter/3, diameter/3])
+    .value(function(d) { return d.size; });
+
+var svg = d3.select("chart").append("svg")
+    .attr("width", diameter)
+    .attr("height", diameter/3 + 10)
+  .append("g")
+    .attr("transform", "translate(50,0)");
+
+  d3.json("cluster3.json", function(error, root) {
+  	if (error) return alert(error);
+  	var company = document.getElementById('company').value;
+  	list=root["children"];
+	
+  	var packdata;
+  	for (var item in list) {
+	/*
+    	if (data.hasOwnProperty(key)) { // this will check if key is owned by data object and not by any of it's ancestors
+        	alert(key+': '+data[key]); // this will show each key with it's value
+    	}
+	*/
+		dict=list[item];
+		//alert(dict["name"]);
+		//alert(company);
+		if (dict["name"]==company) {
+			//alert("match found yes");
+			packdata=dict;	
+		}
+  	}
+
+  	var node = svg.datum(packdata).selectAll(".node")
+      	.data(pack.nodes)
+    	.enter().append("g")
+      	.attr("class", function(d) { return d.children ? "node" : "leaf node"; })
+      	.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+  	node.append("title")
+      	.text(function(d) { return d.name + (d.children ? "" : ": " + format(d.size)); });
+
+  	node.append("circle")
+      	.attr("r", function(d) { return d.r; });
+
+  	node.filter(function(d) { return !d.children; }).append("text")
+      	.attr("dy", ".3em")
+      	.style("text-anchor", "middle")
+      	.text(function(d) { return d.name.substring(0, d.r / 3); });
+  });
+
+
+  d3.select(self.frameElement).style("height", diameter + "px");
+	/*
+  d3.json("questions.json", function(error, root) {
+  	if (error) return alert(error);
+  	var company = document.getElementById('company').value;
+  	list=root["children"];
+var q_list=["A","B","C","1. first question","2. second question","3. third question"];
+  d3.select("data").selectAll("div")
+    .data(q_list)
+  .enter().append("p")
+    .text(function(d) { return d; });
+
+	
+
+  });
+ */
+  //var dummy=["","",""]
+  
+}
+</script>
+
+</head>
+<body>
+<div>
+<form name="myform">
+	Enter a company name in the box and click Submit to see the distribution and some sample questions: <BR>
+	<p><input type="text" id="company" name="inputbox" placeholder="E.g: Microsoft"></p>
+	<p><input TYPE="button" name="button" value="Submit" onClick="showDistribution()"></p>
+</form>
+</div>
+<div>
+<chart></chart>
+</div>
+<data>
+</data>
+</body>
+
+</html>
