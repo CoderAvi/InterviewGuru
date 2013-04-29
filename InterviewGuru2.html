@@ -26,7 +26,16 @@ input[name="inputbox"] {
   width: 425px;
 }
 
+
+input[name="inputbox2"] {
+  width: 425px;
+}
+
 input[name="button"] {
+  width: 100px;
+}
+
+input[name="button2"] {
   width: 100px;
 }
 
@@ -40,11 +49,10 @@ input[name="button"] {
 <script>
 function showDistribution() {
 
-
 d3.select("svg")
        .remove();
 d3.select("#data").remove();
-d3.select("body").append("div").attr("id","data");
+d3.select("body").append("div").attr("id","data").attr("align","center");
 
 var diameter = 900,
     format = d3.format(",d");
@@ -87,18 +95,16 @@ d3.json("cluster3c.json", function(error, root) {
 	.text(function(d) {return d["t"];});
 
 
-d3.json("questions2.json", function(error, root) {
-  	if (error) return alert(error);
-  	q_list=root[company];
- 	d3.select("#data").selectAll("div")
-    	.data(q_list)
-  	.enter().append("p")
-    	.text(function(d) { return d; });});});
+
+
+});
 
 var f = document.createElement("form");
 var i = document.createElement("input");
+f.innerHTML = f.innerHTML + 'Select a tag below and then click submit to see clusters of questions <BR>';
 i.setAttribute('type',"text");
 i.setAttribute('name',"inputbox2");
+i.setAttribute('id',"qtag");
 i.setAttribute('placeholder',"E.g: Algorithms");
 var b = document.createElement("input");
 b.setAttribute('type',"button");
@@ -107,44 +113,82 @@ b.setAttribute('value',"Submit");
 b.setAttribute('onClick',"showQuestions()");
 f.appendChild(i);
 f.appendChild(b);
-document.getElementById("data")
-
-
-
-
-
+var p= document.createElement("p");
+p.appendChild(f);
+document.getElementById("data").appendChild(p);
 
 }
 
+function showQuestions() {
 
+d3.json("questions2.json", function(error, root) {
+  	if (error) return alert(error);
+	var company = document.getElementById('company').value;
+	var qtag = document.getElementById('qtag').value;
 
+  	//c_dict=root[company];
+	//c_list=c_dict[qtag];
+	c_list=[["qn58169.txt::: Question Details", "qn14467101.txt::: Question Details"], ["qn3771428.txt::: Question Details", "qn68908.txt::: Question Details", "qn3817943.txt::: Question Details", "qn3805408.txt::: Question Details", "qn3765414.txt::: Question Details"]];
+	//var q_list=new Array();
+	var k=0;
+	//form questions in single cluster now.
+	for (i in c_list) { 
+		cluster=c_list[i];
+		for (j in cluster) {
+			//q_list[k]=cluster[j];	
+			//k=k+1;
+			var parts=cluster[j].split(":::");
+			var len=parts[0].length;
+			var qid=parts[0].substr(2,len-6);
+			var qtext=parts[1];
+			var a = document.createElement('a');
+			var linkText = document.createTextNode(qtext);
+			a.appendChild(linkText);
+			a.title = qid;
+			a.href = "http://www.careercup.com/question?id="+qid;
+			var p= document.createElement("p");
+			p.setAttribute('align','left');
+			p.appendChild(a);
+			document.getElementById("data").appendChild(p);
+			//document.body.appendChild(a);
+		}
+		//q_list[k]="..";
+		//k=k+1;
+	}
+	/*
+ 	d3.select("#data").selectAll("div")
+    	.data(q_list)
+  	.enter().append("p")
+    	.text(function(d) { return d; });});*/
+});
+}
 
 
 </script>
 
 </head>
 <body>
-<div align=center>
+<div align="center">
 <h2>
 Welcome to Interview Guru!!
 </h2>
 </div>
-<div align=center>
+<div align="center">
 <form name="myform">
 	Enter a company name in the box and click Submit to see the distribution and some sample questions: <BR>
-	<p><input type="text" id="company" name="inputbox" placeholder="E.g: Microsoft"></p>
-	<p><input type="button" name="button" value="Submit" onClick="showDistribution()"></p>
+	<p><input type="text" id="company" name="inputbox" placeholder="E.g: Microsoft">
+	   <input type="button" name="button" value="Submit" onClick="showDistribution()"></p>
 </form>
 </div>
-<div align=center>
+<div align="center">
 <chart></chart>
 </div>
-<div align=center>
+<div align="center">
 <qsel>
 </qsel>
 </div>
 
-<div id="data">
+<div id="data" align="center">
 <!--Questions go here.-->
 </div>
 </body>
