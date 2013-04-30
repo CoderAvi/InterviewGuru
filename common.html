@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+
+<title> The Interview Guru </title>
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="iGuru.css">
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="iGuru.js"></script>
+
+</head>
+<body onload="popCompanyList()">
+<div align="center">
+<h2>
+Welcome to Interview Guru!!
+</h2>
+</div>
+
+<div align="center">
+<form name="myform">
+	Select company names to get started!! <BR>
+
+	<p><label>Company 1 </label>
+	   <select id="company1s">
+	   </select></p>
+
+	<p><label>Company 2 </label>
+	   <select id="company2s">
+	   </select></p>
+
+
+	<!--
+	<p><input type="text" id="company1" name="inputboxB" placeholder="E.g: Microsoft">
+	   <input type="text" id="company2" name="inputboxB" placeholder="E.g: Amazon">
+	-->
+	<p> <input type="button" name="button" value="Submit" onClick="showDistribution()"></p>
+	<p> Click <a href="file:///Users/Macho/Developer/IR/irproject/home.html">here</a> to switch to single company distribution. </p>
+</form>
+</div>
+<div align="center">
+<chart></chart>
+</div>
+<div align="center">
+<qsel>
+</qsel>
+</div>
+<div id="tform" align="center">
+</div>
+<div id="data" align="center">
+<!--Questions go here.-->
+</div>
+</body>
+</html>
