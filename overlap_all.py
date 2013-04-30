@@ -28,9 +28,9 @@ def do_cluster(vector,clist):
     
     
     threshold = 4
-    i = 1
     cluster = {}
     return_list = []
+    """
     clist1 = clist * 1
     tmplist = clist * 1
     
@@ -53,7 +53,42 @@ def do_cluster(vector,clist):
         tmp = cluster[key]
         if len(tmp) > 1:
             return_list.append(tmp)
-           
+    """
+    dellist = []
+    length = len(clist)
+    
+    for i in range(length):
+        if i in dellist:
+            continue
+        v1 = clist[i]
+        dellist.append(i)
+        cluster[i] = []
+        cluster[i].append(v1)
+        for j in range(i+1,length):
+            if j in dellist:
+                continue
+            v2 = clist[j]
+            if(find_sim(vector,v1,v2) >= threshold):
+                cluster[i].append(v2)
+                dellist.append(j)
+                
+     #print cluster   
+    clustersize = {}
+    for key in cluster.keys():
+           clustersize[key] = len(cluster[key])
+
+    #print clustersize
+    from operator import itemgetter
+    sortedcluster = sorted(clustersize.iteritems(),key=itemgetter(1),reverse = True)
+    #print sortedcluster
+    total = 0    
+    for tuple in sortedcluster:
+          key = tuple[0]
+          total += tuple[1]
+          tmp = cluster[key]
+          return_list.append(tmp)
+          if total > 30:
+              break       
     return return_list    
         
               
