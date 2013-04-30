@@ -289,7 +289,7 @@ if (company2se!=null) {
 	var company1se = document.getElementById('company1s');
 	var company2se = document.getElementById('company2s');
 	var company1 = company1se.options[company1se.selectedIndex].text;
-	var company2 = company2se.options[company1se.selectedIndex].text;
+	var company2 = company2se.options[company2se.selectedIndex].text;
 	var tlist=[];
 	var c_dict=null;
 	for (i in list) {
