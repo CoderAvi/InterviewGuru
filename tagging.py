@@ -13,11 +13,47 @@ def main():
     
     f=open('tag_data.txt','r')
     s=f.read()
-    tag_dict=json.loads(s)    
+    tag_dict_old=json.loads(s)    
+    f.close()
+    
+    f=open('retagging.txt','r')
+    s=f.read()
+    retagging=json.loads(s)    
     f.close()
     
     doc_dict = {}
     untagged_list = []
+    tag_dict = {}
+    
+    for key in tag_dict_old.keys():
+        tmplist1 = tag_dict_old[key]
+        tmplist2 = []
+        if len(tmplist1) > 0:
+            for tag in tmplist1:
+                if tag == 'Algorithm':
+                    continue
+                elif tag == 'Coding':
+                    continue
+                elif tag == 'General Questions and Comments':
+                    continue
+                elif tag == 'Software Engineer / Developer':
+                    continue
+                elif tag == 'Ideas':
+                    continue
+                elif tag == 'Data Structures':
+                    continue
+                elif tag == 'Dynamic Programming':
+                    continue
+                elif tag == 'Sorting':
+                    continue
+                elif tag in retagging.keys():
+                    newtag = retagging[tag]
+                else:
+                    newtag = tag
+                  
+                tmplist2.append(newtag)
+        tag_dict[key] = tmplist2               
+            
     
     for key in tag_dict.keys():
         tmplist = tag_dict[key]
@@ -32,24 +68,29 @@ def main():
                 doc_dict[i].append(key)
 
 
-    """   
+    
     doc_count = {}            
+    total = 0
     for key in doc_dict.keys():
-          doc_count[key] = len(doc_dict[key])          
+          doc_count[key] = len(doc_dict[key])
+          total += len(doc_dict[key])          
             
     doc_prob = {}
     for key in doc_count.keys():
-        doc_prob[key] = float(doc_count[key])/float(tag_count)
-      
+        doc_prob[key] = float(doc_count[key])/float(total)
+
+       
+    """  
     from operator import itemgetter    
     list1 =  sorted(doc_count.items(),key=itemgetter(1),reverse=True)
     for i in list1:
-        print i[0]
-    for i in list1:
-        print i[1]
+        print i[0] , i[1] 
+        
+    sys.exit(0)    
     """
-   
-    f=open('qn.txt','r')
+    
+    
+    f=open('question_data.txt','r')
     s=f.read()
     qn_dict=json.loads(s)    
     f.close()
@@ -65,7 +106,10 @@ def main():
         tmp = {}
         doc_list = doc_dict[key]
         for doc in doc_list:
-            string = qn_dict[doc]
+            if doc in qn_dict:
+               string = qn_dict[doc]
+            else:
+                continue   
             str1 = string.lower()
             words = re.findall(r'[a-z]+',str1)   
             for word in words:
@@ -83,6 +127,8 @@ def main():
           x += tmp[i]
         total[key] = x   
         tag_term_freq[key] = tmp
+        
+    
         
     for key1 in tag_term_freq.keys():
        for key2 in tag_term_freq[key1]:
@@ -108,6 +154,7 @@ def main():
                x += math.log10(tag_term_freq[tag][word])
             else:
                x += math.log10(float(1)/float(total[tag]+b))
+          x += math.log10(doc_prob[tag])     
           if x > maxval :
              maxval = x
              maxtag = tag
@@ -116,7 +163,14 @@ def main():
              
     for doc in untagged_list:
         print doc , tag_dict[doc]
-    print len(untagged_list)
+    #print len(untagged_list)
+    
+    
+
+    
+    with open('fullytagged_data.txt', 'w') as outfile:
+            json.dump(tag_dict, outfile)
+    print "Done"        
 
 
 
