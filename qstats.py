@@ -6,10 +6,13 @@ import json
 import copy
 
 def main():
+	
 	f=open('tag_data.txt','r')
 	s=f.read()
 	tag_dict=json.loads(s)
 	f.close()
+	print 'total question base size:',
+	print len(tag_dict.keys())
 	f=open('company_data.txt','r')
 	s=f.read()
 	company_dict=json.loads(s)
