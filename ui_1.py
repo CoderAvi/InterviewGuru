@@ -1,3 +1,10 @@
+"""
+  File to generate the distribution of different focus areas/tags 
+  for each company.
+  
+"""  
+  
+
 #!/usr/bin/python -tt
 import bs4
 import sys

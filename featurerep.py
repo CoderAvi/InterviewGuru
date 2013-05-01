@@ -1,3 +1,8 @@
+"""
+   File to generate vectors for each question
+   
+"""   
+
 #!/usr/bin/python -tt
 import bs4
 import sys
@@ -34,7 +39,7 @@ def main():
         else:
             vocab.append(stem_dict[key])
             
-    
+    #data is case folded,stemmed and stop words are removed. 
     vector = {}
     for key in qn_dict.keys():
       string = qn_dict[key]

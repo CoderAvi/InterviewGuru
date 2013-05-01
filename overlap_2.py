@@ -1,3 +1,9 @@
+"""
+  File to find cluster of questions for each combination of companies
+  
+"""  
+
+
 #!/usr/bin/python -tt
 import bs4
 import sys

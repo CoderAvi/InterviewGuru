@@ -1,3 +1,8 @@
+""" 
+  File to retag the questions
+  
+"""  
+
 #!/usr/bin/python -tt
 import bs4
 import sys
@@ -25,6 +30,7 @@ def main():
     untagged_list = []
     tag_dict = {}
     
+    # some of the existing tags are removed and some tags are reclassified
     for key in tag_dict_old.keys():
         tmplist1 = tag_dict_old[key]
         tmplist2 = []
@@ -80,22 +86,13 @@ def main():
         doc_prob[key] = float(doc_count[key])/float(total)
 
        
-    """  
-    from operator import itemgetter    
-    list1 =  sorted(doc_count.items(),key=itemgetter(1),reverse=True)
-    for i in list1:
-        print i[0] , i[1] 
-        
-    sys.exit(0)    
-    """
-    
-    
+    #Using Naive-Bayes to retag the untagged questions 
     f=open('question_data.txt','r')
     s=f.read()
     qn_dict=json.loads(s)    
     f.close()
     
-    #Training 
+    #Training - our training data is tagged questions
    
     vocab = {}
     total = {}
@@ -136,7 +133,7 @@ def main():
         
    
     
- #Testing
+ #Testing - our testing data is the set of questions which are untagged
      
     for doc in untagged_list:
         if doc in qn_dict.keys():

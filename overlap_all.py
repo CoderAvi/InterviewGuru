@@ -1,3 +1,10 @@
+"""
+  File to find cluster of questions from a dataset of questions 
+  from all the companies
+  
+"""  
+
+
 #!/usr/bin/python -tt
 import bs4
 import sys
@@ -5,7 +12,7 @@ import os
 import json
 import math
 
-
+#the dotproduct of the vectors is returned
 def find_sim(vector,v1,v2):
     tmp1 = vector[v1]
     tmp2 = vector[v2]
@@ -18,7 +25,8 @@ def find_sim(vector,v1,v2):
         
     
 
-
+#find clusters within the given set of vectors based
+#on distance
 def do_cluster(vector,clist):
     
     f=open('question_data.txt','r')
@@ -30,30 +38,6 @@ def do_cluster(vector,clist):
     threshold = 4
     cluster = {}
     return_list = []
-    """
-    clist1 = clist * 1
-    tmplist = clist * 1
-    
-    while len(tmplist) > 0:
-     for v1 in clist1:
-        cluster[i] = []
-        cluster[i].append(v1)
-        if v1 in tmplist:
-          tmplist.remove(v1)
-        clist2 = tmplist * 1
-        for v2 in clist2:
-            if(find_sim(vector,v1,v2) >= threshold):
-                #print find_sim(vector,v1,v2)
-                cluster[i].append(v2)
-                tmplist.remove(v2)
-        i += 1
-        
-    #print "no of clusters is " , i 
-    for key in cluster.keys():
-        tmp = cluster[key]
-        if len(tmp) > 1:
-            return_list.append(tmp)
-    """
     dellist = []
     length = len(clist)
     
@@ -140,7 +124,7 @@ def main():
                 tag_dict[tag] = []
                 tag_dict[tag].append(qn)
                   
-    
+    #generating clusters for each tag
     for tag in tag_dict.keys():
         clist = tag_dict[tag]
         if len(clist) > 20 :

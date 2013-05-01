@@ -1,3 +1,8 @@
+"""
+  File to parse the crawled data and extract the questions
+  
+"""  
+
 #!/usr/bin/python -tt
 import bs4
 import sys

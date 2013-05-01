@@ -1,3 +1,8 @@
+"""
+   File to find cluster of quesitons for each company
+   
+"""   
+
 #!/usr/bin/python -tt
 import bs4
 import sys

@@ -1,3 +1,7 @@
+"""
+   File to merge output data
+"""   
+
 #! /usr/bin/python -tt
 import bs4
 import sys
